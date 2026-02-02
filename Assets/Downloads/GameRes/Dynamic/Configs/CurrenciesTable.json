@@ -1,0 +1,14 @@
+[
+  {
+    "Uid":"1",
+    "Name":"1",
+    "SmallTextureUid":"1000",
+    "BigTextureUid":"1000"
+   },
+  {
+    "Uid":"2",
+    "Name":"2",
+    "SmallTextureUid":"1005",
+    "BigTextureUid":"1005"
+   }
+]

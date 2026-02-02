@@ -1,0 +1,18 @@
+[
+  {
+    "Uid":"1",
+    "Path":"bgm_sengokuop"
+   },
+  {
+    "Uid":"2",
+    "Path":"bgm_stage"
+   },
+  {
+    "Uid":"3",
+    "Path":"bgm_battle"
+   },
+  {
+    "Uid":"4",
+    "Path":"maintheme"
+   }
+]
