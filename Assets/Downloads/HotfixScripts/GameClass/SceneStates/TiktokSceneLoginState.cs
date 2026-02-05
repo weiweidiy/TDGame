@@ -2,6 +2,7 @@
 using Adic.Container;
 using Cysharp.Threading.Tasks;
 using Game.Common;
+using Game.Modules;
 using GameCommands;
 using JFramework;
 using JFramework.Extern;
@@ -36,6 +37,13 @@ namespace Tiktok
                 panelName = nameof(UIPanelLogin),
             };
             eventManager.Raise<UILoginController.Open>(controllerArgs);
+        }
+
+        public override UniTask OnExit()
+        {
+            eventManager.Raise<UILoginController.Close>(null);
+
+            return base.OnExit();
         }
 
 
@@ -74,7 +82,15 @@ namespace Tiktok
 
         protected override string GetBGMClipName()
         {
-            return tiktokConfigManager.GetLoginMusic();
+            try
+            {
+                return tiktokConfigManager.GetLoginMusic();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("GetLoginMusic error:" + e);
+                return "";
+            }
         }
 
 

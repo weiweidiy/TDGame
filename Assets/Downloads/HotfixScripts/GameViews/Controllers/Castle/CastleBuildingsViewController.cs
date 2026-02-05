@@ -1,5 +1,6 @@
 ﻿using Adic;
 using Game.Common;
+using Game.Modules;
 using Game.Share;
 using JFramework;
 using System;
@@ -27,7 +28,7 @@ namespace Tiktok
         [Inject]
         TiktokGameObjectManager gameObjectManager;
         [Inject]
-        CastleBackgroundViewController backgroundViewController;
+        BackgroundViewController backgroundViewController;
 
         [Inject]
         TiktokGameDataManager gameDataManager;
@@ -49,7 +50,7 @@ namespace Tiktok
         public override void OnStart()
         {
             base.OnStart();
-            eventManager.AddListener<CastleBackgroundViewController.EventEnterCastle>(OnEnterCastle);
+            eventManager.AddListener<BackgroundViewController.EventEnterCastle>(OnEnterCastle);
 
             eventManager.AddListener<BuildingModel.EventUpdate>(OnBuildingUpdate);
             eventManager.AddListener<BuildingModel.EventCreate>(OnBuildingCreate);
@@ -58,7 +59,7 @@ namespace Tiktok
         public override void OnStop()
         {
             base.OnStop();
-            eventManager.RemoveListener<CastleBackgroundViewController.EventEnterCastle>(OnEnterCastle);
+            eventManager.RemoveListener<BackgroundViewController.EventEnterCastle>(OnEnterCastle);
 
             eventManager.RemoveListener<BuildingModel.EventUpdate>(OnBuildingUpdate);
             eventManager.RemoveListener<BuildingModel.EventCreate>(OnBuildingCreate);
@@ -132,11 +133,11 @@ namespace Tiktok
         {
             var controllerArgs = e.Body as ControllerArgs;
             if (controllerArgs == null) return;
-            //EnterCastle();
+            //ShowBackground();
         }
         /// <summary>
 
-        private void OnEnterCastle(CastleBackgroundViewController.EventEnterCastle e)
+        private void OnEnterCastle(BackgroundViewController.EventEnterCastle e)
         {
             //Debug.Log("进入城堡" + DateTime.Now);
             var cfgDataList = configManager.GetAll<BuildingsCfgData>();

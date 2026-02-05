@@ -1,6 +1,8 @@
 ﻿using Adic;
 using Adic.Container;
 using dnlib.DotNet;
+using Game.Common;
+using Game.Modules;
 using Game.Share;
 using JFramework;
 using JFramework.Game.View;

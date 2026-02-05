@@ -11,6 +11,7 @@ namespace JFramework
     {
         public TiktokGenConfigManager(IConfigLoader loader, IDeserializer deserializer) : base(loader)
         {
+          RegisterTable<AudiosTable, AudiosCfgData>(nameof(AudiosTable), deserializer);
           RegisterTable<PrefabsTable, PrefabsCfgData>(nameof(PrefabsTable), deserializer);
         }
     }

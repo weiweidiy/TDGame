@@ -57,7 +57,7 @@ namespace Tiktok
             properties.CurrencyDict.Add(CurrencyType.Coin, currenciesModel.Get(CurrencyType.Coin.ToString())?.Count ?? 0);
             properties.CurrencyDict.Add(CurrencyType.Pan, currenciesModel.Get(CurrencyType.Pan.ToString())?.Count ?? 0);
             //properties.Food = currenciesModel.Get(CurrencyType.Food.ToString())?.Count ?? 0;
-            properties.ProgressData = new ProgressData(){Current = hpPoolModel.Data.Hp , Max = hpPoolModel.Data.MaxHp };
+            //properties.ProgressData = new ProgressData(){Current = hpPoolModel.Data.Hp , Max = hpPoolModel.Data.MaxHp };
 
             //需要显示的货币类型
             properties.menuItems = new List<CurrencyType>()

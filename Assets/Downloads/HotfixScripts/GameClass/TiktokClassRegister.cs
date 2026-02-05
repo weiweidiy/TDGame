@@ -1,4 +1,5 @@
 ﻿using Game.Common;
+using Game.Modules;
 using Game.Share;
 using JFramework;
 using JFramework.Game;
@@ -63,13 +64,13 @@ namespace Tiktok
             result.Add(GetIndex(), typeof(UIPanelCurrencies.UIPanelEventMenuClicked));
 
             //登录
-            result.Add(GetIndex(), typeof(UIPanelLogin.EventBtnEnterClick));
+            //result.Add(GetIndex(), typeof(UIPanelLogin.EventBtnEnterClick));
             result.Add(GetIndex(), typeof(UILoginController.EventEnterGame));
 
             //城堡
-            result.Add(GetIndex(), typeof(CastleBackgroundViewController.EventEnterCastle));
+            result.Add(GetIndex(), typeof(BackgroundViewController.EventEnterCastle));
             result.Add(GetIndex(), typeof(CastleBuildingsViewController.EventBuildingClicked));
-            result.Add(GetIndex(), typeof(CastleBackgroundViewController.EventBuildingCreateClicked));
+            //result.Add(GetIndex(), typeof(BackgroundViewController.EventBuildingCreateClicked));
             result.Add(GetIndex(), typeof(UIBuildingMenuController.EventBuildingPopupMenuClicked));
 
 

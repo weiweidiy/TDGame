@@ -119,7 +119,10 @@ namespace Tiktok
         protected async UniTask PlayBGM()
         {
             //显示背景音乐
-            await gameAudioManager.PlayMusic(GetBGMClipName(), true, 0.5f);
+            var clipName = GetBGMClipName();
+            if (clipName != "")
+                await gameAudioManager.PlayMusic(clipName, true, 0.5f);
+
         }
 
         /// <summary>

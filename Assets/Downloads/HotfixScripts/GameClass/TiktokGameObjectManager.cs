@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Tiktok
 {
-    public class TiktokGameObjectManager
+    public class TiktokGameObjectManager : IGameObjectPool
     {
         /// <summary>
         /// 游戏对象对象池
@@ -82,6 +82,12 @@ namespace Tiktok
             GameObject.Destroy(go);
         }
 
+
+        public GameObject Rent(string location, Transform parent)
+        {
+            return goPool.Rent(location, parent);
+        }
+
         public GameObject Rent(string name)
         {
             return goPool.Rent(name);
@@ -91,6 +97,5 @@ namespace Tiktok
         {
             goPool.Return(go);
         }
-
     }
 }

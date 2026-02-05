@@ -1,6 +1,7 @@
 ﻿using Adic;
 using Cysharp.Threading.Tasks;
 using Game.Common;
+using Game.Modules;
 using GameCommands;
 using JFramework;
 using JFramework.Game.View;
@@ -37,11 +38,12 @@ namespace Tiktok
         {
             await base.OnEnter(arg);
 
-            var bgControllerArgs = new CastleBackgroundViewController.ControllerArgs()
+            var bgControllerArgs = new BackgroundViewController.ControllerArgs()
             {
                 //panelName = "CastleBackgroundView"
+                prefabName = tiktokConfigManager.GetCastlePrefabName(),
             };
-            eventManager.Raise<CastleBackgroundViewController.Open>(bgControllerArgs);
+            eventManager.Raise<BackgroundViewController.Open>(bgControllerArgs);
 
 
             var mainMenuControllerArgs = new UIMainMenuController.ControllerArgs()
@@ -57,7 +59,7 @@ namespace Tiktok
             base.AddListeners();
 
             eventManager.AddListener<CastleBuildingsViewController.EventBuildingClicked>(OnBuildingClicked);
-            eventManager.AddListener<CastleBackgroundViewController.EventBuildingCreateClicked>(OnBuildingCreateClicked);
+            //eventManager.AddListener<BackgroundViewController.EventBuildingCreateClicked>(OnBuildingCreateClicked);
             eventManager.AddListener<UIBuildingMenuController.EventBuildingPopupMenuClicked>(OnBuildingMenuClicked);
             eventManager.AddListener<UIDeployController.EventDeployUnit>(OnDeploy);
             eventManager.AddListener<UIDeployController.EventChangeFormation>(OnChangeFormation);
@@ -72,7 +74,7 @@ namespace Tiktok
             base.RemoveListeners();
 
             eventManager.RemoveListener<CastleBuildingsViewController.EventBuildingClicked>(OnBuildingClicked);
-            eventManager.RemoveListener<CastleBackgroundViewController.EventBuildingCreateClicked>(OnBuildingCreateClicked);
+            //eventManager.RemoveListener<BackgroundViewController.EventBuildingCreateClicked>(OnBuildingCreateClicked);
             eventManager.RemoveListener<UIBuildingMenuController.EventBuildingPopupMenuClicked>(OnBuildingMenuClicked);
             eventManager.RemoveListener<UIDeployController.EventDeployUnit>(OnDeploy);
             eventManager.RemoveListener<UIDeployController.EventChangeFormation>(OnChangeFormation);
@@ -104,19 +106,19 @@ namespace Tiktok
             eventManager.Raise<UIBuildingMenuController.Open>(controllerData);
         }
 
-        /// <summary>
-        /// 创建建筑按钮被点击了
-        /// </summary>
-        /// <param name="e"></param>
-        /// <exception cref="NotImplementedException"></exception>
-        private void OnBuildingCreateClicked(CastleBackgroundViewController.EventBuildingCreateClicked e)
-        {
-            var args = e.Body as CastleBackgroundViewController.ControllerArgs;
-            Debug.Log("点击了创建建筑按钮 !" + args.targetBusinessId);
+        ///// <summary>
+        ///// 创建建筑按钮被点击了
+        ///// </summary>
+        ///// <param name="e"></param>
+        ///// <exception cref="NotImplementedException"></exception>
+        //private void OnBuildingCreateClicked(BackgroundViewController.EventBuildingCreateClicked e)
+        //{
+        //    var args = e.Body as BackgroundViewController.ControllerArgs;
+        //    Debug.Log("点击了创建建筑按钮 !" + args.targetBusinessId);
 
-            var dispatcher = container.GetCommandDispatcher();
-            dispatcher.Dispatch<CommandCreateBuilding>(args.targetBusinessId);
-        }
+        //    var dispatcher = container.GetCommandDispatcher();
+        //    dispatcher.Dispatch<CommandCreateBuilding>(args.targetBusinessId);
+        //}
 
         /// <summary>
         /// 主菜单入口被点击了
@@ -294,7 +296,7 @@ namespace Tiktok
 
         protected override string GetUISettingsName()
         {
-            return "UISceneCastleSettings";
+            return "UISceneTribeSettings";
         }
         #endregion
 

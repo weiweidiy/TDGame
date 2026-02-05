@@ -13,6 +13,7 @@ using JFramework.Game;
 using System;
 using System.Net;
 using Game.Share;
+using Game.Modules;
 
 
 namespace Tiktok
@@ -127,6 +128,7 @@ namespace Tiktok
             ///依赖IAssetsLoader
             container.Bind<TiktokGameObjectPool>().ToSingleton();
             container.Bind<TiktokGameObjectManager>().ToSingleton();
+            container.Bind<IGameObjectPool>().ToSingleton<TiktokGameObjectManager>();
             ///依赖IAssetsLoader
             container.Bind<UIManager>().ToSingleton();
             container.Bind<TiktokSpritesManager>().ToSingleton();
@@ -158,7 +160,7 @@ namespace Tiktok
             //每次都是新的实例
             container.Bind<ParallelLauncher>().ToSelf();
             //其他UI
-            container.Bind<TiktokNetworkHolding>().ToSingleton();
+            container.Bind<NetworkHoldingController>().ToSingleton();
 
 
             //新手引导
@@ -243,18 +245,18 @@ namespace Tiktok
         {
             container.Bind<ViewController>().ToSingleton<NetworkMessageListener>().As("Castle");
             container.Bind<ViewController>().ToSingleton<UIWarningMessageController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<CastleBackgroundViewController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<CastleBuildingsViewController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UIBuildingMenuController>().As("Castle");
+            container.Bind<ViewController>().ToSingleton<BackgroundViewController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<CastleBuildingsViewController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UIBuildingMenuController>().As("Castle");
 
-            container.Bind<ViewController>().ToSingleton<UICurrenciesController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UIMainMenuController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UISamuraisListController>().As("Castle");
-            //container.Bind<ViewController>().ToSingleton<UIDrawSamuraiController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UIKachaController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UIDeployController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UILevelListController>().As("Castle");
-            container.Bind<ViewController>().ToSingleton<UIHpPoolController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UICurrenciesController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UIMainMenuController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UISamuraisListController>().As("Castle");
+            ////container.Bind<ViewController>().ToSingleton<UIDrawSamuraiController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UIKachaController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UIDeployController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UILevelListController>().As("Castle");
+            //container.Bind<ViewController>().ToSingleton<UIHpPoolController>().As("Castle");
         }
 
         void BindingGuideControllers()

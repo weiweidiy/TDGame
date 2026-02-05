@@ -39,7 +39,7 @@ namespace Tiktok
         /// <summary>
         /// 当前租用的背景视图
         /// </summary>
-        TiktokBackgroundView curRentBackgroundView;
+        BackgroundView curRentBackgroundView;
 
 
         [Inject]
@@ -81,7 +81,7 @@ namespace Tiktok
             //租用背景预制体，需要归还
             var goLevel = gameObjectManager.Rent(prefabData.PrefabName);
             goLevel.transform.parent = gameObjectManager.GoRoot.transform;
-            curRentBackgroundView = goLevel.GetComponent<TiktokBackgroundView>();
+            curRentBackgroundView = goLevel.GetComponent<BackgroundView>();
             //Debug.Log("eventManager.Raise<EventEnterLevel> " + uid);
             eventManager.Raise<EventEnterLevel>(uid); //通知其他控制器
         }

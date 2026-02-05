@@ -1,6 +1,8 @@
 ﻿using Adic;
 using Adic.Container;
 using Cysharp.Threading.Tasks;
+using Game.Common;
+using Game.Modules;
 using Game.Share;
 using JFramework;
 using JFramework.Game.View;
@@ -64,7 +66,7 @@ namespace GameCommands
 
             try
             {
-                loginTask = await httpRequest.RequestLogin(account, container.Resolve<TiktokNetworkHolding>());
+                loginTask = await httpRequest.RequestLogin(account, container.Resolve<NetworkHoldingController>());
             }
             catch(Exception e)
             {
@@ -97,15 +99,15 @@ namespace GameCommands
             Debug.Log($"RequestEnterGame，Token={loginTask.Token}");
 
             //初始化必要模型
-            playerModel.Initialize(gameDTO.PlayerDTO);
-            levelModel.Initialize(gameDTO.LevelNodesDTO);
-            samuraisModel.Initialize(gameDTO.SamuraisDTO);
-            currenciesModel.Initialize(gameDTO.CurrencyDTO);
-            formationDeployModel.Initialize(gameDTO.AtkFormationDTO);
-            formationModel.Initialize(gameDTO.FormationDTOs);
-            buildingModel.Initialize(gameDTO.BuildingDTOs);
-            guideModel.Initialize(gameDTO.CurrentGuideBusinessId);
-            hpPoolModel.Initialize(gameDTO.HpPoolDTO);
+            //playerModel.Initialize(gameDTO.PlayerDTO);
+            //levelModel.Initialize(gameDTO.LevelNodesDTO);
+            //samuraisModel.Initialize(gameDTO.SamuraisDTO);
+            //currenciesModel.Initialize(gameDTO.CurrencyDTO);
+            //formationDeployModel.Initialize(gameDTO.AtkFormationDTO);
+            //formationModel.Initialize(gameDTO.FormationDTOs);
+            //buildingModel.Initialize(gameDTO.BuildingDTOs);
+            //guideModel.Initialize(gameDTO.CurrentGuideBusinessId);
+            //hpPoolModel.Initialize(gameDTO.HpPoolDTO);
 
             gameDataManager.Login(gameDTO.ServerTime);
 
@@ -113,10 +115,11 @@ namespace GameCommands
             await network.Connect(hubUrl, accountDTO.Token);
 
             //如果还没有过新手引导，则进入新手引导场景，否则进入城堡场景
-            if (levelModel.IsLevelUnlocked("2"))
-                await context.sm.SwitchToCastle(null);
-            else
-                await context.sm.SwitchToGuide(null);
+            await context.sm.SwitchToCastle(null);
+            //if (levelModel.IsLevelUnlocked("2"))
+            //    await context.sm.SwitchToCastle(null);
+            //else
+            //    await context.sm.SwitchToGuide(null);
 
             //await context.sm.SwitchToGame(null);
 
