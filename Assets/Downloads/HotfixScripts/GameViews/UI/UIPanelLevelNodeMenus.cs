@@ -13,7 +13,7 @@ using static JFramework.Game.View.UIPanelLevelNodeMenus;
 namespace JFramework.Game.View
 {
     [Serializable]
-    public class LevelNodeMenuItem : MenuItem<UILevelNodeMenu>
+    public class LevelNodeMenuItem : UIMenuItem<UILevelNodeMenu>
     {
     }
 
@@ -89,7 +89,7 @@ namespace JFramework.Game.View
 
     //        foreach (var btn in btnMenus)
     //        {
-    //            btn.value.onClick.AddListener(() =>
+    //            btn.value.onClicked.AddListener(() =>
     //            {
     //                SendEvent<EventBtnClicked>(new UIPanelBaseMenusPanelData() { panel = this, Key = btn.Key, dto = Properties.dto});
     //            });
@@ -101,7 +101,7 @@ namespace JFramework.Game.View
 
     //        foreach (var btn in btnMenus)
     //        {
-    //            btn.value.onClick.RemoveAllListeners();
+    //            btn.value.onClicked.RemoveAllListeners();
     //        }
     //    }
 

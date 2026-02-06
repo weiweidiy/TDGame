@@ -13,7 +13,7 @@ namespace JFramework.Game.View
     /// 弹出菜单基类
     /// </summary>
     /// <typeparam name="TType"></typeparam>
-    public abstract class UIPanelBasePopupMenus<TType, TMenuItem> : UIPanelBaseMenus<TType, TMenuItem> where TMenuItem : IMenuItem<TType>
+    public abstract class UIPanelBasePopupMenus<TType, TMenuItem> : UIPanelBaseMenus<TType, TMenuItem> where TMenuItem : IUIMenuItem<TType>
     {
         protected override void OnPanelRefresh(UIPanelBaseMenusProperties<TType> properties)
         {

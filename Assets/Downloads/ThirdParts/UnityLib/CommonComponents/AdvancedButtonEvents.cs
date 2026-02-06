@@ -13,7 +13,7 @@ public class AdvancedButtonEvents
 
 //private void Start()
 //{
-//    myButton.advancedEvents.onClick.AddListener(OnDeployUnitClick);
+//    myButton.advancedEvents.onClicked.AddListener(OnDeployUnitClick);
 //    myButton.advancedEvents.onLongPressStart.AddListener(OnLongPressStart);
 //    myButton.advancedEvents.onLongPressEnd.AddListener(OnLongPressEnd);
 //    myButton.advancedEvents.onLongPressComplete.AddListener(OnLongPressComplete);

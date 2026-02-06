@@ -49,6 +49,7 @@ namespace Tiktok
             // 创建一个根节点，所有的游戏对象都挂在这个节点下，方便管理
             var root = new GameObject("GoRoot");
             gameObjectManager.GoRoot = root;
+            Debug.Log("场景切换完成了，已激活");
 
             //初始化ui管理器
             await InitUiManager();

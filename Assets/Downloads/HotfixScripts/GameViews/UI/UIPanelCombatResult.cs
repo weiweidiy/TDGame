@@ -40,7 +40,7 @@ namespace JFramework.Game.View
 //protected override void OnPropertiesSet()
 //{
 //    base.OnPropertiesSet();
-//    btnClose.onClick.AddListener(OnBtnCloseClicked);
+//    btnClose.onClicked.AddListener(OnBtnCloseClicked);
 //}
 
 //private void OnBtnCloseClicked()
@@ -51,6 +51,6 @@ namespace JFramework.Game.View
 //protected override void WhileHiding()
 //{
 //    base.WhileHiding();
-//    btnClose.onClick.RemoveListener(OnBtnCloseClicked);
+//    btnClose.onClicked.RemoveListener(OnBtnCloseClicked);
 
 //}

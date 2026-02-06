@@ -8,7 +8,7 @@ using static JFramework.Game.View.UIPanelBuildingMenus;
 namespace JFramework.Game.View
 {
     [Serializable]
-    public class BuildingMenuItem : MenuItem<UIBuildingMenu>
+    public class BuildingMenuItem : UIMenuItem<UIBuildingMenu>
     {
     }
 

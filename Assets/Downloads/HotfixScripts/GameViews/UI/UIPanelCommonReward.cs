@@ -46,7 +46,7 @@ namespace JFramework.Game.View
         //protected override void OnPropertiesSet()
         //{
         //    base.OnPropertiesSet();
-        //    //btnClose.onClick.AddListener(OnBtnCloseClicked);
+        //    //btnClose.onClicked.AddListener(OnBtnCloseClicked);
 
         //    scrollerDel.Reload(Properties.dataList);
         //    if (Properties.dataList.Count > 1)
@@ -61,7 +61,7 @@ namespace JFramework.Game.View
         //protected override void WhileHiding()
         //{
         //    base.WhileHiding();
-        //    //btnClose.onClick.RemoveListener(OnBtnCloseClicked);
+        //    //btnClose.onClicked.RemoveListener(OnBtnCloseClicked);
 
         //}
 

@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Game.Common
 {
-    public class AdvancedButton : Button
+    public class AdvancedButton : Button, IClickHandler
     {
         [Header("Timing Settings")]
         [Tooltip("Minimum time between clicks in seconds")]
@@ -25,11 +26,19 @@ namespace Game.Common
         private bool _isLongPress;
         private float _pointerDownTime;
 
+        public object TargetArg { get; set; }
+
+        public event Action<object> onClicked;
+
         protected override void Awake()
         {
             base.Awake();
-            // 将原有的 onClick 事件转移到我们的 advancedEvents.onClick
-            onClick.AddListener(() => advancedEvents.onClick.Invoke());
+            // 将原有的 onClicked 事件转移到我们的 advancedEvents.onClicked
+            base.onClick.AddListener(() =>
+            {
+                advancedEvents.onClick.Invoke();
+                onClicked?.Invoke(TargetArg);
+            });
         }
 
         private void Update()
@@ -71,14 +80,14 @@ namespace Game.Common
 
         public override void OnPointerClick(PointerEventData eventData)
         {
-            if (_isLongPress) 
+            if (_isLongPress)
                 return;
 
             if (!_hasClickedOnce || Time.time - _lastClickTime >= minClickInterval)
             {
                 _lastClickTime = Time.time;
                 _hasClickedOnce = true;
-                base.OnPointerClick(eventData); // 这会触发原始的 onClick 事件
+                base.OnPointerClick(eventData); // 这会触发原始的 onClicked 事件
             }
         }
 
@@ -112,7 +121,7 @@ namespace Game.Common
 
 //private void Start()
 //{
-//    myButton.advancedEvents.onClick.AddListener(OnDeployUnitClick);
+//    myButton.advancedEvents.onClicked.AddListener(OnDeployUnitClick);
 //    myButton.advancedEvents.onLongPressStart.AddListener(OnLongPressStart);
 //    myButton.advancedEvents.onLongPressEnd.AddListener(OnLongPressEnd);
 //    myButton.advancedEvents.onLongPressComplete.AddListener(OnLongPressComplete);

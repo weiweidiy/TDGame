@@ -33,25 +33,32 @@ namespace Tiktok
         [Inject]
         FormationDeployModel formationDeployModel;
 
+        [Inject]
+        TiktokSpritesManager spritesManager;
+
 
         protected override async UniTask OnEnter(object arg)
         {
             await base.OnEnter(arg);
 
+            var goRoot = GameObject.Find("GoRoot");
+            var sp = spritesManager.GetSprite("4pd_img_background_lobby_1");
             var bgControllerArgs = new BackgroundViewController.ControllerArgs()
             {
                 //panelName = "CastleBackgroundView"
                 prefabName = tiktokConfigManager.GetCastlePrefabName(),
+                parent = goRoot.transform,
+                spBackground = sp,
             };
             eventManager.Raise<BackgroundViewController.Open>(bgControllerArgs);
+            Debug.Log("打开背景预制体");
 
-
-            var mainMenuControllerArgs = new UIMainMenuController.ControllerArgs()
-            {
-                panelName = nameof(UIPanelMainMenu),
-                menuItems = GetMainMenuEntrances()
-            };
-            eventManager.Raise<UIMainMenuController.Open>(mainMenuControllerArgs);
+            //var mainMenuControllerArgs = new UIMainMenuController.ControllerArgs()
+            //{
+            //    panelName = nameof(UIPanelMainMenu),
+            //    menuItems = GetMainMenuEntrances()
+            //};
+            //eventManager.Raise<UIMainMenuController.Open>(mainMenuControllerArgs);
         }
 
         public override void AddListeners()

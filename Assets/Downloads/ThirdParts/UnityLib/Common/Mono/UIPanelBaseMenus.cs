@@ -7,33 +7,12 @@ using UnityEngine;
 
 namespace JFramework.Game.View
 {
-    public interface IMenuItem<T>
-    {
-        T Key { get; }
-        AdvancedButton Value { get; }
-    }
-
-    [Serializable]
-    public class MenuItem<TType> : IMenuItem<TType>
-    {
-        /// <summary>
-        /// 编辑器可见
-        /// </summary>
-        [SerializeField] TType key;
-        [SerializeField] AdvancedButton value;
-
-        /// <summary>
-        /// 实现接口
-        /// </summary>
-        public TType Key => key;
-        public AdvancedButton Value => value;
-    }
 
     /// <summary>
     /// 普通菜单基类
     /// </summary>
     /// <typeparam name="TType"></typeparam>
-    public abstract class UIPanelBaseMenus<TType, TMenuItem> : UIPanelBase<UIPanelBaseMenusProperties<TType>> where TMenuItem : IMenuItem<TType>
+    public abstract class UIPanelBaseMenus<TType, TMenuItem> : UIPanelBase<UIPanelBaseMenusProperties<TType>> where TMenuItem : IUIMenuItem<TType>
     {
         public class UIPanelEventMenuClicked : Event { }
 
@@ -52,6 +31,8 @@ namespace JFramework.Game.View
                 {
                     OnMenuClicked(btn);
                 });
+                //btn.Value.TargetArg = btn;
+                //btn.Value.onClicked += OnMenuClicked;
             }
         }
 
@@ -60,6 +41,7 @@ namespace JFramework.Game.View
             foreach (var btn in btnMenus)
             {
                 btn.Value.onClick.RemoveAllListeners();
+                //btn.Value.onClicked -= OnMenuClicked;
             }
         }
 
@@ -69,6 +51,7 @@ namespace JFramework.Game.View
         /// <param name="btn"></param>
         protected void OnMenuClicked(TMenuItem btn)
         {
+           //TMenuItem btn = (TMenuItem)arg;
             var panelData = CreatePanelData() as UIPanelBaseMenusPanelData;
             panelData.menuItem = btn;
             SendEvent<UIPanelEventMenuClicked>(panelData);
@@ -100,7 +83,7 @@ namespace JFramework.Game.View
             foreach (var btn in btnMenus)
             {
                 if (btn.Key.Equals(key))
-                    return btn.Value.gameObject;
+                    return (btn.Value.gameObject);
             }
             return null;
         }

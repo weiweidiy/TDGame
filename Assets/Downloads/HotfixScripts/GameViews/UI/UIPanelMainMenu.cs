@@ -11,7 +11,7 @@ using static JFramework.Game.View.UIPanelMainMenu;
 namespace JFramework.Game.View
 {
     [Serializable]
-    public class MainMenuItem : MenuItem<UIMainEntrance>
+    public class MainMenuItem : UIMenuItem<UIMainEntrance>
     {
     }
     public class UIPanelMainMenu : UIPanelBaseMenus<UIMainEntrance, MainMenuItem>
@@ -94,7 +94,7 @@ namespace JFramework.Game.View
 
 //        foreach (var btn in entrances)
 //        {
-//            btn.value.onClick.AddListener(() =>
+//            btn.value.onClicked.AddListener(() =>
 //            {
 //                SendEvent<EventBtnClicked>(btn.Key);
 //            });
@@ -106,7 +106,7 @@ namespace JFramework.Game.View
 
 //        foreach (var btn in entrances)
 //        {
-//            btn.value.onClick.RemoveAllListeners();
+//            btn.value.onClicked.RemoveAllListeners();
 //        }
 //    }
 

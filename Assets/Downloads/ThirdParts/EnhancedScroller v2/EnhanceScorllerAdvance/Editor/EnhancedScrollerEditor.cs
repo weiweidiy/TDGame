@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class EnhancedScrollerEditor : UnityEditor.Editor
 {
     //以第二个参数为true。该有效函数用来判断当前是否选择了对象，如果选择了，返回true，才可以执行MyToolDelete方法。
-    //[MenuItem("EnhancedScroller / Create Normal EnhancedScroller")]
+    //[UIMenuItem("EnhancedScroller / Create Normal EnhancedScroller")]
     [MenuItem("GameObject / UI / EnhancedScrollerAdvance")]
     public static void CreateEnhancedScroller()
     {

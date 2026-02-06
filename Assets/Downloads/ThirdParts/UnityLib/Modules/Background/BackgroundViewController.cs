@@ -1,9 +1,6 @@
 ﻿using Adic;
 using Game.Common;
-using Game.Share;
 using JFramework;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Event = JFramework.Event;
 
@@ -20,7 +17,9 @@ namespace Game.Modules
             public string targetBusinessId;
             public string prefabName;
             public Transform parent;
+            public Sprite spBackground;
         }
+
         public class EventEnterCastle : Event { }
 
         /// <summary>
@@ -67,9 +66,10 @@ namespace Game.Modules
         void ShowBackground(ControllerArgs args)
         {
             ////租用背景预制体，需要归还
-            var goCastle = gameObjectManager.Rent(args.prefabName,null);
-            goCastle.transform.parent = args.parent;
+            var goCastle = gameObjectManager.Rent(args.prefabName, args.parent);
+            //goCastle.transform.parent = args.parent;
             curRentBackgroundView = goCastle.GetComponent<BackgroundView>();
+            curRentBackgroundView.SetBackground(args.spBackground);
             eventManager.Raise<EventEnterCastle>(args);
              
         }

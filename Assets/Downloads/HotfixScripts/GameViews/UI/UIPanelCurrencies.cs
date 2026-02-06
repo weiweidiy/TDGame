@@ -9,7 +9,7 @@ using UnityEngine;
 namespace JFramework.Game.View
 {
     [Serializable]
-    public class CurrenyMenuItem : MenuItem<CurrencyType>
+    public class CurrenyMenuItem : UIMenuItem<CurrencyType>
     {
         public TextMeshProUGUI txtCount;
     }

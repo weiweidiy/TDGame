@@ -15,7 +15,7 @@ namespace JFramework.Game.View
             //txtProgress = GetBindingComponent("txtProgress") as TextMeshProUGUI;
             //imgFill = GetBindingComponent("imgFill") as Image;
             //btnClick = GetBindingComponent("btnClick") as Button;
-            //btnClick.onClick.AddListener(() =>
+            //btnClick.onClicked.AddListener(() =>
             //{
             //    //点击关卡单元，发送事件
             //    SendUnitCustomEvent(OnLevelUnitClicked, (_data.UnitData as UnitData).levelUid);
