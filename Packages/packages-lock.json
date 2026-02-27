@@ -15,11 +15,18 @@
       "hash": "73a63b7f672b88f7e9992f6917eb458a8cbb6fa9"
     },
     "com.hiplay.jframework": {
-      "version": "git@github.com:weiweidiy/com.hiplay.jframwork.git",
+      "version": "https://github.com/weiweidiy/com.hiplay.jframework.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "12032acfffc6068bade39eb44c6edbf0ac50bf3a"
+      "hash": "93b8bbb9611634eddf9d993d6b2f2f3256473f37"
+    },
+    "com.hiplay.jframework.unity": {
+      "version": "https://github.com/weiweidiy/com.hiplay.jframework.unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e826bd2fb994f687200f821fe4d33ea575be876a"
     },
     "com.tuyoogame.yooasset": {
       "version": "2.2.4-preview",

@@ -6,7 +6,8 @@ Assembly-CSharp-Editor.csproj
 Assembly-CSharp.csproj
 
 Assets/.DS_Store
-
+JFrameworkUnity.Player.csproj
+JFrameworkUnity.csproj
 Bin/
 Unity.RenderPipelines.Universal.2D.Internal.Player.csproj
 Unity.RenderPipelines.Universal.2D.Internal.csproj

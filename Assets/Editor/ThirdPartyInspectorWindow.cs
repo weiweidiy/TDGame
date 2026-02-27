@@ -6,8 +6,8 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
-using Tiktok;
 using JFramework;
+using Game;
 
 public class ThirdPartyInspectorWindow : OdinEditorWindow
 {
@@ -90,6 +90,6 @@ public class ThirdPartyInspectorWindow : OdinEditorWindow
         base.OnEnable();
 
         var container = GameObject.Find("Container").GetComponent<TiktokContainerMain>().Container;
-        Target = container.Resolve<LevelsModel>();
+        //Target = container.Resolve<LevelsModel>();
     }
 }

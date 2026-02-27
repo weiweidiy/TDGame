@@ -2,7 +2,8 @@
   "dependencies": {
     "com.code-philosophy.hybridclr": "https://github.com/focus-creative-games/hybridclr_unity.git",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
-    "com.hiplay.jframework": "git@github.com:weiweidiy/com.hiplay.jframwork.git",
+    "com.hiplay.jframework": "https://github.com/weiweidiy/com.hiplay.jframework.git",
+    "com.hiplay.jframework.unity": "https://github.com/weiweidiy/com.hiplay.jframework.unity.git",
     "com.tuyoogame.yooasset": "2.2.4-preview",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.2d": "2.0.1",

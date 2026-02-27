@@ -2,5 +2,9 @@
   {
     "Uid":"1",
     "PrefabName":"Castle"
+   },
+  {
+    "Uid":"2",
+    "PrefabName":"BackgroundUnitGacha"
    }
 ]
