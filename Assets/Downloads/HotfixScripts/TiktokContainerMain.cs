@@ -43,6 +43,7 @@ namespace Game
 
             container.Bind<View>().ToSingleton<UIPanelLoginView>().As(DemoSceneType.SceneLogin.ToString());
             container.Bind<View>().ToSingleton<UIPanelStartMenuView>().As(DemoSceneType.SceneCastle.ToString());
+            container.Bind<View>().ToSingleton<BackgroundView>().As(DemoSceneType.SceneCastle.ToString());
 
 
             var assetsLoader = new YooAssetsLoader();
