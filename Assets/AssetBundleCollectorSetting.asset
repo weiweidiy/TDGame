@@ -71,14 +71,6 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
-      - CollectPath: Assets/Downloads/ThirdParts/SceneTransition/Prefabs
-        CollectorGUID: 8ae6077fe6353ed4ca8d4b180d8d9df6
-        CollectorType: 0
-        AddressRuleName: AddressByFileName
-        PackRuleName: PackDirectory
-        FilterRuleName: CollectAll
-        AssetTags: 
-        UserData: 
       - CollectPath: Assets/Downloads/GameRes/Dynamic/Configs
         CollectorGUID: 7491aca262199ff42bbac1438b8b9c4b
         CollectorType: 0

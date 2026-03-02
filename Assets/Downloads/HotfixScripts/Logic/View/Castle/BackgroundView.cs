@@ -7,6 +7,7 @@ namespace Game
     public class BackgroundViewData : ViewData
     {
         public Transform parent; //父物体
+        public Sprite sp;
     }
     public class BackgroundView : View
     {
@@ -20,7 +21,8 @@ namespace Game
             var prefabName = (args as BackgroundViewData)?.prefabName;
             var parent = (args as BackgroundViewData)?.parent;
             var goManager = GetGameObjectManager();
-            goManager.Rent(prefabName, parent);
+            var goBackground = goManager.Rent(prefabName, parent);
+            goBackground.GetComponent<Background>().SetBackground((args as BackgroundViewData)?.sp);
         }
 
         public override void Refresh<TArg>(TArg args)

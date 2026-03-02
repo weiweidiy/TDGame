@@ -34,7 +34,9 @@ namespace Game
             }
             Debug.Log($"登录成功，Token={loginTask.Token}");
 
+            var transition = await context.Facade.TransitonOut(TransitionType.SMFadeTransition.ToString());
             await context.Facade.GetSceneStateMachine().SwitchToState(DemoSceneType.SceneCastle.ToString(), context).AsTask();
+            await context.Facade.TransitonIn(transition);
         }
     }
 

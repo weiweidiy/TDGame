@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Game
 {
+
+
     public class UIPanelStartMenuView : View
     {
         public override void Close()
@@ -14,7 +16,8 @@ namespace Game
 
         public override void Open<TArg>(TArg args)
         {
-            throw new System.NotImplementedException();
+            var uiManager = GetUIManager();
+            uiManager.ShowPanel(args.prefabName, new UIPanelStartMenuProperties());
         }
 
         public override void Refresh<TArg>(TArg args)

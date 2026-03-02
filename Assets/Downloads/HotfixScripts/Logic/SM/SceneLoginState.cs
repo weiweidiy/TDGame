@@ -13,7 +13,8 @@ namespace Game
         {
             var task = base.OnEnter(arg);
             await task;
-            var ctrl = context.Facade.GetViewControllerContainer().GetViewController(nameof(UIPanelLoginView)) as UIPanelLoginView;
+
+            var ctrl = GetController<UIPanelLoginView>();
             ctrl.onLoginClicked += OnLoginClicked;
             ctrl.Open(new ViewData() { prefabName = nameof(UIPanelLogin) });
         }
