@@ -16,7 +16,7 @@ public class LaunchArgs
 
 
 
-public class TiktokLauncher : MonoBehaviour
+public class GameLauncher : MonoBehaviour
 {
     public enum ServerUrls
     {

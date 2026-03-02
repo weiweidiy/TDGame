@@ -286,6 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8129927755583414359}
+  - component: {fileID: 5041700968160314203}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -310,6 +311,18 @@ Transform:
   - {fileID: 4622096173050808065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5041700968160314203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532986827084831608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c2123a4766a3946aee259c3e257b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8790603052535424051
 GameObject:
   m_ObjectHideFlags: 0

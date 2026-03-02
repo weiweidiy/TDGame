@@ -48,7 +48,8 @@ namespace Game
             //Debug.Log("Login Clicked");
             try
             {
-                var url = "https://1.117.228.69:7289/Account/FastLogin";
+                //var url = "https://1.117.228.69:7289/Account/FastLogin";
+                var url = GameLauncher.ServerUrl+ "Account/FastLogin";
                 var req = new AccountDTO() { Uid = "2222" };
 
                 await context.Facade.GetControllerManager().GetController(nameof(LoginController)).Do(context, url,req);

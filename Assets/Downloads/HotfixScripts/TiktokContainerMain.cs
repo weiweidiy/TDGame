@@ -1,18 +1,10 @@
 using Adic;
 using Adic.Container;
-using Game.Common;
-using Game.Demo;
+using Cysharp.Threading.Tasks;
 using JFramework;
-using JFramework.Common;
-using JFramework.Game;
-using JFramework.Package;
 using JFramework.Unity;
-using Stateless;
-using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
-using UnityEngine;
+using System.Linq;
 
 
 
@@ -58,8 +50,8 @@ namespace Game
             facade = builder.Build();
 
 
-            //container.Bind<string>().To(TiktokLauncher.ServerUrl).As("ServerUrl");
-            //container.Bind<string>().To(TiktokLauncher.Account).As("Account");
+            //container.Bind<string>().To(GameLauncher.ServerUrl).As("ServerUrl");
+            //container.Bind<string>().To(GameLauncher.Account).As("Account");
 
             //////绑定通用工具类(无依赖)~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             ////container.Bind<PrefabLocation>().ToSingleton<PrefabLocation>();
@@ -317,12 +309,18 @@ namespace Game
 
         public override async void Init()
         {
-            Debug.Log("Init " + TiktokLauncher.ServerUrl + " / " + TiktokLauncher.Account);
+            //Debug.Log("Init " + GameLauncher.ServerUrl + " / " + GameLauncher.Account);
             //var dispatcher = container.GetCommandDispatcher();
             //dispatcher.Dispatch<CommandStartupGame>();
-            await facade.Initialize(new List<string>() { "Castle" });
 
-            await facade.Run();
+            await facade.Run(configManager =>
+            {
+                var prefabDataList = configManager.GetAll<PrefabsCfgData>();
+                var prefabNames = prefabDataList.Select(x => x.PrefabName).ToList();
+
+                facade.PreloadGameObjects(prefabNames);
+                return UniTask.CompletedTask;
+            });
         }
 
     }
