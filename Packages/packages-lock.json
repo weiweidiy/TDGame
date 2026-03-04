@@ -19,14 +19,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "93b8bbb9611634eddf9d993d6b2f2f3256473f37"
+      "hash": "5bde056a47a349c6ff2d24a14195ca6d85a2ca21"
     },
     "com.hiplay.jframework.unity": {
       "version": "https://github.com/weiweidiy/com.hiplay.jframework.unity.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0143cfb5aff559a0a982d0b66deaf3ea33a0800a"
+      "hash": "3b1f2401e16c9d972601b93eed55ed7b76e44e6f"
     },
     "com.tuyoogame.yooasset": {
       "version": "2.2.4-preview",

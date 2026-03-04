@@ -32,13 +32,7 @@ namespace Game
                            .RegisterExtension<CommanderContainerExtension>();
 
 
-
-            container.Bind<GameViewControllerManager>().ToSingleton();
-
-            container.Bind<View>().ToSingleton<UIPanelLoginView>().As(DemoSceneType.SceneLogin.ToString());
-
-            container.Bind<View>().ToSingleton<BackgroundView>().As(DemoSceneType.SceneCastle.ToString());
-            container.Bind<View>().ToSingleton<UIPanelStartMenuView>().As(DemoSceneType.SceneCastle.ToString());
+            BindInject();
 
             var assetsLoader = new YooAssetsLoader();
             var builder = new FacadeBuilder();
@@ -46,17 +40,27 @@ namespace Game
             builder.SetAssetsLoader(assetsLoader);
             builder.SetSceneStateMachine(new SceneSM());
             builder.SetFirstSceneState(DemoSceneType.SceneLogin.ToString());
-            builder.SetViewControllerContainer(new GameViewControllerManager(container));
+            builder.SetViewControllerContainer(new GameViewManager(container));
             builder.SetModelManager(new GameModelManager());
             builder.SetControllerManager(new GameControllerManager());
             builder.SetConfigManager(new GenConfigManager(assetsLoader, new DefaultDataConverter()));
             builder.SetGameAssetsQuary(new GameAssetsQuary());
+            builder.SetSocket(new SignalRSocket());
             facade = builder.Build();
 
             //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
 
+        void BindInject()
+        {
+            //container.Bind<GameViewManager>().ToSingleton();
 
+            //
+            container.Bind<View>().ToSingleton<UIPanelLoginView>().As(DemoSceneType.SceneLogin.ToString());
+            container.Bind<View>().ToSingleton<BackgroundView>().As(DemoSceneType.SceneCastle.ToString());
+            container.Bind<View>().ToSingleton<UIPanelStartMenuView>().As(DemoSceneType.SceneCastle.ToString());
+
+        }
 
         public override async void Init()
         {

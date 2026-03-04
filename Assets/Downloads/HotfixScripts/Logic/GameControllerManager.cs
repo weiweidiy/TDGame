@@ -9,6 +9,8 @@ namespace Game
         public override void RegisterControllers()
         {
             controllers.Add(nameof(LoginController), new LoginController());
+            controllers.Add(nameof(StartFightController), new StartFightController());
+
         }
     }
 

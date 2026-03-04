@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace Game
 {
-    public class GameViewControllerManager : BaseViewManager
+    public class GameViewManager : BaseViewManager
     {
         IInjectionContainer container;
 
         [Inject]
-        public GameViewControllerManager(IInjectionContainer container) 
+        public GameViewManager(IInjectionContainer container) 
         {
             this.container = container;
         }

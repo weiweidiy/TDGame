@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animIn: {fileID: 0}
   animOut: {fileID: 0}
+  btnStartFight: {fileID: 3642433226496060588}
 --- !u!1 &577212175280560891
 GameObject:
   m_ObjectHideFlags: 0

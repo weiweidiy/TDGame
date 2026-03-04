@@ -17,6 +17,9 @@ namespace Game.Demo
 
         public override UniTask OnExit()
         {
+            CloseBackground();
+            CloseStartBattleMenu();
+
             return base.OnExit();
         }
 
@@ -41,7 +44,7 @@ namespace Game.Demo
         /// <returns></returns>
         async UniTask OpenBackground()
         {
-            var ctrl = GetController<BackgroundView>() as BackgroundView;
+            var ctrl = GetController<BackgroundView>() ;
             var assetsQuery = context.Facade.GetGameAssetsQuary() as GameAssetsQuary;
             var spBackground = await assetsQuery.GetBackgroundSpriteAsync();
 
@@ -55,6 +58,12 @@ namespace Game.Demo
             });
         }
 
+        void CloseBackground()
+        {
+            var ctrl = GetController<BackgroundView>();
+            ctrl.Close();
+        }
+
         /// <summary>
         /// 打开开始战斗菜单界面
         /// </summary>
@@ -62,8 +71,21 @@ namespace Game.Demo
         async UniTask OpenStartBattleMenu()
         {
             var ctrl = GetController<UIPanelStartMenuView>();
+            ctrl.onStartFightClicked += Ctrl_onStartFightClicked;
             ctrl.Open(new ViewData() { prefabName = nameof(UIPanelStartMenu) });
             await UniTask.CompletedTask;
+        }
+
+        void CloseStartBattleMenu()
+        {
+            var ctrl = GetController<UIPanelStartMenuView>();
+            ctrl.onStartFightClicked -= Ctrl_onStartFightClicked;
+            ctrl.Close();
+        }
+
+        private void Ctrl_onStartFightClicked()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
