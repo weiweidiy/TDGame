@@ -7,6 +7,6 @@
 
     public class ResStartFight
     {
-    
+        public int Port { get; set; }
     }
 }

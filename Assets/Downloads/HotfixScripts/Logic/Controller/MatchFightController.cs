@@ -5,28 +5,25 @@ using UnityEngine;
 
 namespace Game
 {
-
-    public class StartFightController : Controller
+    public class MatchFightController : Controller
     {
         public override async Task Do(GameContext context, params object[] parameters)
         {
             var httpRequest = context.Facade.GetHttpRequest();
-            ResStartFight fightTask = null;
+            ResMatch matchTask = null;
             var url = parameters[0] as string;
-            var req = parameters[1] as ReqStartFight;
-
+            var req = parameters[1] as ReqMatch;
             try
             {
-                fightTask = await httpRequest.HttpRequestAsync<ReqStartFight, ResStartFight>(url, req);
+                matchTask = await httpRequest.HttpRequestAsync<ReqMatch, ResMatch>(url, req);
             }
             catch (Exception e)
             {
-               // Debug.LogError($"开始战斗失败，错误信息：{e.Message}");
+                Debug.LogError($"匹配失败，错误信息：{e.Message}");
                 throw;
-
             }
-            //Debug.Log($"发起战斗成功 端口：" + fightTask.Port);
+            Debug.Log($"匹配成功 IP：{matchTask.Ip} 端口：{matchTask.Port}");
         }
+
     }
 }
-

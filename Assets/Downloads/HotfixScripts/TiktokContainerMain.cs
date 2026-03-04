@@ -46,7 +46,7 @@ namespace Game
             builder.SetConfigManager(new GenConfigManager(assetsLoader, new DefaultDataConverter()));
             builder.SetGameAssetsQuary(new GameAssetsQuary());
             builder.SetSocket(new SignalRSocket());
-            builder.SetProtocolRegister(new TiktokClientNetMessageRegister());
+            builder.SetProtocolRegister(new AutoNetMessageRegister());
             builder.SetNetworkMessageHandler(new MessageHandler());
             facade = builder.Build();
 

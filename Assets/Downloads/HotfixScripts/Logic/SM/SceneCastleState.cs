@@ -85,9 +85,9 @@ namespace Game.Demo
 
         private async void Ctrl_onStartFightClicked()
         {
-            var url = GameLauncher.ServerUrl + "api/Fight/Fight";
-            var req = new ReqStartFight() { LevelNodeBusinessId = "1" };
-            await context.Facade.GetControllerManager().GetController(nameof(StartFightController)).Do(context, url, req);
+            var url = GameLauncher.ServerUrl + "api/Match/Match";
+            var req = new ReqMatch() { };
+            await context.Facade.GetControllerManager().GetController(nameof(MatchFightController)).Do(context, url, req);
         }
     }
 }

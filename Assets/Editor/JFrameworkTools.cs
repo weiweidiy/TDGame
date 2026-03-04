@@ -6,9 +6,9 @@ using UnityEditor;
 using UnityEngine;
 using YooAsset;
 
-public class JFrameTools
+public class JFrameworkTools
 {
-    [MenuItem("JFrameTools/ClearSave")]
+    [MenuItem("JFrameworkTools/ClearSave")]
     public static void ClearSave()
     {
         PlayerPrefs.DeleteAll();
@@ -17,7 +17,7 @@ public class JFrameTools
     /// <summary>
     /// 拷贝补充元数据AOT DLL到热更新目录里
     /// </summary>
-    [MenuItem("JFrameTools/CopyAOTDLlToHotFixDir")]
+    [MenuItem("JFrameworkTools/CopyAOTDLlToHotFixDir")]
     public static void CopyAOTAssembliesToStreamingAssets()
     {
         var target = EditorUserBuildSettings.activeBuildTarget;
@@ -45,7 +45,7 @@ public class JFrameTools
     /// <summary>
     /// 拷贝热更新DLL 到热更新目录
     /// </summary>
-    [MenuItem("JFrameTools/CopyHotFixDLlToHotFixDir")]
+    [MenuItem("JFrameworkTools/CopyHotFixDLlToHotFixDir")]
     public static void CopyHotUpdateAssembliesToStreamingAssets()
     {
         var target = EditorUserBuildSettings.activeBuildTarget;
