@@ -25,7 +25,7 @@ namespace Game
                 throw;
 
             }
-            //Debug.Log($"登录成功，Token={fightTask.Token}");
+            Debug.Log($"发起战斗成功");
         }
     }
 

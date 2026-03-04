@@ -46,6 +46,8 @@ namespace Game
             builder.SetConfigManager(new GenConfigManager(assetsLoader, new DefaultDataConverter()));
             builder.SetGameAssetsQuary(new GameAssetsQuary());
             builder.SetSocket(new SignalRSocket());
+            builder.SetProtocolRegister(new TiktokClientNetMessageRegister());
+            builder.SetNetworkMessageHandler(new MessageHandler());
             facade = builder.Build();
 
             //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
