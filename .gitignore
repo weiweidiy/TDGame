@@ -4,7 +4,8 @@
 Assembly-CSharp-Editor.csproj
 
 Assembly-CSharp.csproj
-
+Bins/
+ParrelSync.csproj
 Assets/.DS_Store
 JFrameworkUnity.Player.csproj
 JFrameworkUnity.csproj

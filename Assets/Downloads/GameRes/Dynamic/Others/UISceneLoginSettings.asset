@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d5b16dfaa653d44b33b7113dacf4ba, type: 3}
   m_Name: UISceneLoginSettings
   m_EditorClassIdentifier: 
-  templateUIPrefab: {fileID: 8834705305336452800, guid: fa3dca4286eb3284ea758f6824f3e48d, type: 3}
+  templateUIPrefab: {fileID: 4477273785743401908, guid: d2033c9915229ff4eb977fe19800c088, type: 3}
   screensToRegister:
   - {fileID: 6129415853701612157, guid: d98eace86b6aaa543b7b30b7808c3d95, type: 3}
   deactivateScreenGOs: 1

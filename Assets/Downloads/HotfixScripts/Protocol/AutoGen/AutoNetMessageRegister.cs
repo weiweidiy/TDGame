@@ -10,8 +10,7 @@ namespace Game
         {
             var tables = new Dictionary<int, Type>();
             tables.Add((int)ProtocolType.CurrencyUpdateNtf, typeof(CurrencyUpdateNtf));
-            tables.Add((int)ProtocolType.HpPoolUpdateNtf, typeof(HpPoolUpdateNtf));
-            tables.Add((int)ProtocolType.SamuraiUpdateNtf, typeof(SamuraiUpdateNtf));
+            tables.Add((int)ProtocolType.StartFightNtf, typeof(StartFightNtf));
             return tables;
         }
     }

@@ -35,6 +35,8 @@ namespace JFramework.Package
             //"YooAsset.dll",
             //"UnityEngine.dll",
             //"UnityEngine.CoreModule.dll",
+            "JFrameworkUnity.dll",
+            "JFramework.dll",
         };
 
         public async UniTask LoadDLL()

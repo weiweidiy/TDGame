@@ -1,20 +1,21 @@
 ﻿using JFramework;
+using JFramework.Unity;
 using System;
 using UnityEngine;
 
 
 namespace Game
 {
-    public class MessageHandler : INetworkMessageHandler
+    public class MessageHandler : BaseNetworkMessageHandler
     {
-        public void Handle(IJNetMessage message)
+        public override void Handle(IJNetMessage message)
         {
             switch(message.TypeId)
             {
                 case (int)ProtocolType.HpPoolUpdateNtf:
                     {
-                        var ntf = message as HpPoolUpdateNtf;
-                        Debug.Log($"HpPoolUpdateNtf: {ntf.HpPoolDTO.Hp}");
+                        //var ntf = message as HpPoolUpdateNtf;
+                        //Debug.Log($"HpPoolUpdateNtf: {ntf.HpPoolDTO.Hp}");
                     }
                     break;
                 default:

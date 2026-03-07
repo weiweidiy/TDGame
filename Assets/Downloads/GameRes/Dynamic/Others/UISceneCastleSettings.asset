@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d5b16dfaa653d44b33b7113dacf4ba, type: 3}
   m_Name: UISceneCastleSettings
   m_EditorClassIdentifier: 
-  templateUIPrefab: {fileID: 8834705305336452800, guid: fa3dca4286eb3284ea758f6824f3e48d, type: 3}
+  templateUIPrefab: {fileID: 4477273785743401908, guid: d2033c9915229ff4eb977fe19800c088, type: 3}
   screensToRegister:
   - {fileID: 95414906571658010, guid: be84fee4e656b1248a2ba9139413313a, type: 3}
   deactivateScreenGOs: 1

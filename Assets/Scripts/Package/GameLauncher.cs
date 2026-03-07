@@ -62,6 +62,7 @@ public class GameLauncher : MonoBehaviour
 
     void Start()
     {
+        //Debug.Log("11111");
         //aot丢失问题，这里引用一下
         var task = new List<UniTask>();
         var json = new List<PropertyMetadata>();

@@ -3,7 +3,7 @@
     public enum ProtocolType
     {
         CurrencyUpdateNtf = 1,
-        SamuraiUpdateNtf = 2,
+        StartFightNtf = 2,
         LevelNodeUpdateNtf = 3,
         FormationDeployUpdateNtf = 4,
         HpPoolUpdateNtf = 5,

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Launch.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scripts/TDRoom/Scenes/RoomScene.unity
-    guid: dda423ffceb535a46bb1a9e0860044cd
-  - enabled: 1
     path: Assets/Scenes/Patch.unity
     guid: caa5fa01c6335de41a56b32da257fadf
+  - enabled: 1
+    path: Assets/Scripts/TDRoom/Scenes/RoomScene.unity
+    guid: dda423ffceb535a46bb1a9e0860044cd
   m_configObjects: {}

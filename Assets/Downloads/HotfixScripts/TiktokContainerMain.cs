@@ -2,9 +2,7 @@ using Adic;
 using Adic.Container;
 using Cysharp.Threading.Tasks;
 using JFramework;
-using JFramework.Game;
 using JFramework.Unity;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -31,24 +29,32 @@ namespace Game
                            .RegisterExtension<EventCallerContainerExtension>()
                            .RegisterExtension<CommanderContainerExtension>();
 
+            Debug.Log("TiktokContainerMain SetupContainers");
 
-            BindInject();
+            try
+            {
+                BindInject();
 
-            var assetsLoader = new YooAssetsLoader();
-            var builder = new FacadeBuilder();
+                var assetsLoader = new YooAssetsLoader();
+                var builder = new FacadeBuilder();
 
-            builder.SetAssetsLoader(assetsLoader);
-            builder.SetSceneStateMachine(new SceneSM());
-            builder.SetFirstSceneState(DemoSceneType.SceneLogin.ToString());
-            builder.SetViewControllerContainer(new GameViewManager(container));
-            builder.SetModelManager(new GameModelManager());
-            builder.SetControllerManager(new GameControllerManager());
-            builder.SetConfigManager(new GenConfigManager(assetsLoader, new DefaultDataConverter()));
-            builder.SetGameAssetsQuary(new GameAssetsQuary());
-            builder.SetSocket(new SignalRSocket());
-            builder.SetProtocolRegister(new AutoNetMessageRegister());
-            builder.SetNetworkMessageHandler(new MessageHandler());
-            facade = builder.Build();
+                builder.SetAssetsLoader(assetsLoader);
+                builder.SetSceneStateMachine(new SceneSM());
+                builder.SetFirstSceneState(DemoSceneType.SceneLogin.ToString());
+                builder.SetViewControllerContainer(new GameViewManager(container));
+                builder.SetModelManager(new GameModelManager());
+                builder.SetControllerManager(new GameControllerManager());
+                builder.SetConfigManager(new GenConfigManager(assetsLoader, new DefaultDataConverter()));
+                builder.SetGameAssetsQuary(new GameAssetsQuary());
+                builder.SetSocket(new SignalRSocket());
+                builder.SetProtocolRegister(new AutoNetMessageRegister());
+                builder.SetNetworkMessageHandler(new MessageHandler());
+                facade = builder.Build();
+            }catch (System.Exception ex)
+            {
+                Debug.LogError("TiktokContainerMain SetupContainers error " + ex);
+            }
+
 
             //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
         }
@@ -66,7 +72,7 @@ namespace Game
 
         public override async void Init()
         {
-            //Debug.Log("Init " + GameLauncher.ServerUrl + " / " + GameLauncher.Account);
+            Debug.Log("Init " + GameLauncher.ServerUrl + " / " + GameLauncher.Account);
             //var dispatcher = container.GetCommandDispatcher();
             //dispatcher.Dispatch<CommandStartupGame>();
 

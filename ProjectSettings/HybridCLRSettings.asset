@@ -28,6 +28,8 @@ MonoBehaviour:
   - mscorlib.dll
   - System.dll
   - System.Core.dll
+  - JFrameworkUnity.dll
+  - JFramework.dll
   outputLinkFile: HybridCLRGenerate/link.xml
   outputAOTGenericReferenceFile: HybridCLRGenerate/AOTGenericReferences.cs
   maxGenericReferenceIteration: 10
