@@ -53,13 +53,14 @@ namespace Game
         }
 
         #region ¿ØÖÆÆ÷ÊÂ¼þ
-        private async void OnLoginClicked()
+        private async void OnLoginClicked(string account)
         {
             //Debug.Log("Login Clicked");
             try
             {
-                var url = GameLauncher.ServerUrl+ "Account/FastLogin";
-                var req = new AccountDTO() { Uid = "2222" };
+                var accountToUse = string.IsNullOrEmpty(account) ? GameLauncher.Account : account;
+                var url = GameLauncher.ServerUrl + "Account/FastLogin";
+                var req = new AccountDTO() { Uid = accountToUse };
                 var urlEnter = GameLauncher.ServerUrl + "api/Game/EnterGame";
                 var reqEnter = new ReqEnterGame() {  };
                 var socketUrl = GameLauncher.ServerUrl;

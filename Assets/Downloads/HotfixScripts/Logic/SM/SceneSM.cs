@@ -16,7 +16,7 @@ namespace Game
         SceneLogin,
         SceneGuide,
         SceneGame,
-        SceneCombat,
+        RoomScene,
         SceneCastle,
     }
 
@@ -42,10 +42,10 @@ namespace Game
         //TiktokSceneGuideState guideState;
         SceneCastleState castleState;
         //TiktokSceneGameState gameState;
-        //TiktokSceneCombatState combatState;
+        SceneCombatState combatState;
 
         //如果需要在状态切换时传递参数，可以在这里定义对应的SMConfig
-        //SMConfig combatConfig;
+        SMConfig combatConfig;
         //SMConfig gameConfig;
         SMConfig castleConfig;
         //SMConfig guideConfig;
@@ -75,16 +75,16 @@ namespace Game
             //if (gameState == null)
             //    throw new Exception("Resolve TiktokSceneGameState is null");
 
-            //combatState = container.Resolve<TiktokSceneCombatState>();
-            //if (combatState == null)
-            //    throw new Exception("Resolve TiktokSceneCombatState is null");
+            combatState = new SceneCombatState();
+            if (combatState == null)
+                throw new Exception("Resolve TiktokSceneCombatState is null");
 
             states.Add(initState);
             states.Add(loginState);
             //states.Add(guideState);
             states.Add(castleState);
             //states.Add(gameState);
-            //states.Add(combatState);
+            states.Add(combatState);
 
             return states;
         }
@@ -128,7 +128,7 @@ namespace Game
             castleConfig.state = castleState;
             castleConfig.dicPermit = new Dictionary<DemoSceneSMTrigger, BaseSceneState>();
             //castleConfig.dicPermit.Add(DemoSceneSMTrigger.Game, gameState); // 可以进入游戏状态
-            //castleConfig.dicPermit.Add(DemoSceneSMTrigger.Combat, combatState); // 可以进入战斗状态
+            castleConfig.dicPermit.Add(DemoSceneSMTrigger.Combat, combatState); // 可以进入战斗状态
             castleConfig.parameter = machine.SetTriggerParameters<object>(DemoSceneSMTrigger.Castle);
             configs.Add(castleName, castleConfig);
 
@@ -142,15 +142,15 @@ namespace Game
             //gameConfig.parameter = machine.SetTriggerParameters<object>(DefaultSceneSMTrigger.Game);
             //configs.Add(gameName, gameConfig);
 
-            //var combatName = combatState.Name;
-            //combatConfig = new SMConfig();
-            //combatConfig.state = combatState;
-            //combatConfig.dicPermit = new Dictionary<DefaultSceneSMTrigger, BaseSceneState>();
-            //combatConfig.dicPermit.Add(DefaultSceneSMTrigger.Game, gameState); // 可以返回到游戏状态
-            //combatConfig.dicPermit.Add(DefaultSceneSMTrigger.Castle, castleState); // 可以返回到城堡状态
-            //combatConfig.dicPermit.Add(DefaultSceneSMTrigger.Guide, guideState); // 可以返回到新手引导状态
-            //combatConfig.parameter = machine.SetTriggerParameters<object>(DefaultSceneSMTrigger.Combat);
-            //configs.Add(combatName, combatConfig);
+            var combatName = combatState.Name;
+            combatConfig = new SMConfig();
+            combatConfig.state = combatState;
+            combatConfig.dicPermit = new Dictionary<DemoSceneSMTrigger, BaseSceneState>();
+            //combatConfig.dicPermit.Add(DemoSceneSMTrigger.Game, gameState); // 可以返回到游戏状态
+            combatConfig.dicPermit.Add(DemoSceneSMTrigger.Castle, castleState); // 可以返回到城堡状态
+            //combatConfig.dicPermit.Add(DemoSceneSMTrigger.Guide, guideState); // 可以返回到新手引导状态
+            combatConfig.parameter = machine.SetTriggerParameters<object>(DemoSceneSMTrigger.Combat);
+            configs.Add(combatName, combatConfig);
 
 
             return configs;
@@ -167,6 +167,9 @@ namespace Game
             if (stateName == DemoSceneType.SceneCastle.ToString())
                 return SwitchToCastle(null);
 
+            if (stateName == DemoSceneType.RoomScene.ToString())
+                return SwitchToCombat(null);
+
             return task;
         }
 
@@ -181,6 +184,11 @@ namespace Game
         UniTask SwitchToCastle(object none)
         {
             return machine.FireAsync(castleConfig.parameter, none);
+        }
+
+        UniTask SwitchToCombat(object combatData)
+        {
+            return machine.FireAsync(combatConfig.parameter, combatData);
         }
     }
 }

@@ -51,7 +51,6 @@
     <type fullname="JFramework.IJNetwork" preserve="all" />
     <type fullname="JFramework.IJNetworkable" preserve="all" />
     <type fullname="JFramework.IJSocket" preserve="all" />
-    <type fullname="JFramework.INetworkMessageHandler" preserve="all" />
     <type fullname="JFramework.IRunable" preserve="all" />
     <type fullname="JFramework.ITypeId" preserve="all" />
     <type fullname="JFramework.ITypeRegister" preserve="all" />
@@ -65,6 +64,7 @@
     <type fullname="JFramework.Unity.AdvancedButton" preserve="all" />
     <type fullname="JFramework.Unity.BaseControllerManager" preserve="all" />
     <type fullname="JFramework.Unity.BaseModelManager" preserve="all" />
+    <type fullname="JFramework.Unity.BaseNetworkMessageHandler" preserve="all" />
     <type fullname="JFramework.Unity.BaseSMAsync`2" preserve="all" />
     <type fullname="JFramework.Unity.BaseSMAsync`2/SMConfig" preserve="all" />
     <type fullname="JFramework.Unity.BaseSceneState`1" preserve="all" />
@@ -112,8 +112,12 @@
     <type fullname="Microsoft.AspNetCore.SignalR.Client.HubConnectionState" preserve="all" />
     <type fullname="Microsoft.AspNetCore.SignalR.Client.IHubConnectionBuilder" preserve="all" />
   </assembly>
+  <assembly fullname="TDRoom">
+    <type fullname="GlobalBoard" preserve="all" />
+  </assembly>
   <assembly fullname="UniTask">
     <type fullname="Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder" preserve="all" />
+    <type fullname="Cysharp.Threading.Tasks.CompilerServices.AsyncUniTaskMethodBuilder`1" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.EnumeratorAsyncExtensions" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.PlayerLoopTiming" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTask" preserve="all" />
@@ -121,8 +125,11 @@
     <type fullname="Cysharp.Threading.Tasks.UniTaskExtensions" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTask`1" preserve="all" />
     <type fullname="Cysharp.Threading.Tasks.UniTask`1/Awaiter" preserve="all" />
+    <type fullname="Cysharp.Threading.Tasks.YieldAwaitable" preserve="all" />
+    <type fullname="Cysharp.Threading.Tasks.YieldAwaitable/Awaiter" preserve="all" />
   </assembly>
   <assembly fullname="Unity.TextMeshPro">
+    <type fullname="TMPro.TMP_InputField" preserve="all" />
     <type fullname="TMPro.TMP_Text" preserve="all" />
     <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
   </assembly>
@@ -132,6 +139,7 @@
   </assembly>
   <assembly fullname="UnityEngine.CoreModule">
     <type fullname="UnityEngine.AddComponentMenu" preserve="all" />
+    <type fullname="UnityEngine.AsyncOperation" preserve="all" />
     <type fullname="UnityEngine.Camera" preserve="all" />
     <type fullname="UnityEngine.Color" preserve="all" />
     <type fullname="UnityEngine.Component" preserve="all" />
@@ -160,9 +168,11 @@
     <type fullname="UnityEngine.Renderer" preserve="all" />
     <type fullname="UnityEngine.RequireComponent" preserve="all" />
     <type fullname="UnityEngine.Resources" preserve="all" />
+    <type fullname="UnityEngine.RuntimeInitializeOnLoadMethodAttribute" preserve="all" />
     <type fullname="UnityEngine.SceneManagement.LoadSceneMode" preserve="all" />
     <type fullname="UnityEngine.SceneManagement.LocalPhysicsMode" preserve="all" />
     <type fullname="UnityEngine.SceneManagement.Scene" preserve="all" />
+    <type fullname="UnityEngine.SceneManagement.SceneManager" preserve="all" />
     <type fullname="UnityEngine.Screen" preserve="all" />
     <type fullname="UnityEngine.Scripting.PreserveAttribute" preserve="all" />
     <type fullname="UnityEngine.SerializeField" preserve="all" />

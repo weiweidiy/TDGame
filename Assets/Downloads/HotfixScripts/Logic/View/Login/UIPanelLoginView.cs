@@ -7,7 +7,7 @@ namespace Game
 {
     public class UIPanelLoginView : View
     {
-        public event Action onLoginClicked;
+        public event Action<string> onLoginClicked;
 
         UIPanelLogin panel;
 
@@ -28,9 +28,9 @@ namespace Game
             throw new NotImplementedException();
         }
 
-        private void OnLoginButtonClicked()
+        private void OnLoginButtonClicked(string account)
         {
-            onLoginClicked?.Invoke();
+            onLoginClicked?.Invoke(account);
         }
     }
 

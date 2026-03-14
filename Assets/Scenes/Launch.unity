@@ -169,7 +169,7 @@ MonoBehaviour:
   PlayMode: 1
   HotfixUrl: 
   PackageName: DefaultPackage
-  _account: jcw292
+  _account: 
   _targetServer: 0
 --- !u!1 &1342625542
 GameObject:
